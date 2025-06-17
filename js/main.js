@@ -240,27 +240,8 @@ function initChat() {
     const closeChatBtn = document.getElementById('closeChat');
 
     // Inicializar IA DON_FBBR
-    let donFbbr;
-    try {
-        donFbbr = new DonFbbrAI();
-        console.log('IA DON_FBBR inicializada com sucesso');
-    } catch (error) {
-        console.error('Erro ao inicializar IA:', error);
-        // Fallback simples se a classe não estiver disponível
-        donFbbr = {
-            getGreeting: () => "Olá! Sou o DON_FBBR, sua IA especializada em SUS na Odontologia. Como posso ajudá-lo hoje?",
-            processAdvancedQuestion: (question) => {
-                const responses = [
-                    "O SUS na Odontologia é organizado através da Política Nacional de Saúde Bucal, que visa reorganizar a prática e qualificar as ações e serviços oferecidos.",
-                    "A atenção básica em saúde bucal é desenvolvida através da Estratégia Saúde da Família, com equipes de saúde bucal integradas.",
-                    "Os Centros de Especialidades Odontológicas (CEO) oferecem atendimento especializado em endodontia, periodontia, cirurgia oral e atendimento a pacientes especiais.",
-                    "A Política Nacional de Saúde Bucal - Brasil Sorridente foi lançada em 2004 para reorganizar a atenção à saúde bucal no SUS.",
-                    "Os princípios do SUS (universalidade, equidade e integralidade) se aplicam integralmente à saúde bucal."
-                ];
-                return responses[Math.floor(Math.random() * responses.length)];
-            }
-        };
-    }
+    let donFbbr = new DonFbbrAI();
+    console.log('IA DON_FBBR inicializada com sucesso');
 
     // Open chat
     window.openChat = function() {
@@ -339,9 +320,7 @@ function initChat() {
             setTimeout(() => {
                 hideTypingIndicator();
                 try {
-                    const aiResponse = donFbbr.processAdvancedQuestion ? 
-                        donFbbr.processAdvancedQuestion(userMessage) : 
-                        donFbbr.processQuestion(userMessage);
+                    const aiResponse = donFbbr.processQuestion(userMessage);
                     addMessage(aiResponse, 'ai');
                 } catch (error) {
                     console.error('Erro ao processar pergunta:', error);

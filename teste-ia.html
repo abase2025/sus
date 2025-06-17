@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste IA DON_FBBR</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; background: #1a1a2e; color: white; }
+        .test-container { max-width: 600px; margin: 0 auto; }
+        .test-button { background: #00d4ff; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; margin: 10px; }
+        .test-result { background: #2a2a4e; padding: 15px; margin: 10px 0; border-radius: 5px; }
+        .chat-test { background: #16213e; padding: 20px; border-radius: 10px; margin: 20px 0; }
+        #testMessages { height: 200px; overflow-y: auto; border: 1px solid #00d4ff; padding: 10px; margin: 10px 0; }
+        #testInput { width: 70%; padding: 10px; }
+        #testSend { width: 25%; padding: 10px; background: #00d4ff; color: white; border: none; }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>🤖 Teste da IA DON_FBBR</h1>
+        
+        <div class="test-result" id="loadTest">
+            <h3>1. Teste de Carregamento</h3>
+            <button class="test-button" onclick="testLoad()">Testar Carregamento da IA</button>
+            <div id="loadResult"></div>
+        </div>
+        
+        <div class="test-result" id="initTest">
+            <h3>2. Teste de Inicialização</h3>
+            <button class="test-button" onclick="testInit()">Testar Inicialização</button>
+            <div id="initResult"></div>
+        </div>
+        
+        <div class="test-result" id="responseTest">
+            <h3>3. Teste de Respostas</h3>
+            <button class="test-button" onclick="testResponse()">Testar Respostas</button>
+            <div id="responseResult"></div>
+        </div>
+        
+        <div class="chat-test">
+            <h3>4. Teste de Chat Interativo</h3>
+            <div id="testMessages"></div>
+            <input type="text" id="testInput" placeholder="Digite uma pergunta...">
+            <button id="testSend" onclick="sendTestMessage()">Enviar</button>
+        </div>
+    </div>
+
+    <script src="js/don-fbbr-simple.js"></script>
+    <script>
+        let testAI;
+        
+        function testLoad() {
+            const result = document.getElementById('loadResult');
+            try {
+                if (typeof DonFbbrAI !== 'undefined') {
+                    result.innerHTML = '✅ <strong>SUCESSO:</strong> Classe DonFbbrAI carregada corretamente!';
+                    result.style.color = '#4caf50';
+                } else {
+                    result.innerHTML = '❌ <strong>ERRO:</strong> Classe DonFbbrAI não encontrada!';
+                    result.style.color = '#f44336';
+                }
+            } catch (error) {
+                result.innerHTML = '❌ <strong>ERRO:</strong> ' + error.message;
+                result.style.color = '#f44336';
+            }
+        }
+        
+        function testInit() {
+            const result = document.getElementById('initResult');
+            try {
+                testAI = new DonFbbrAI();
+                result.innerHTML = '✅ <strong>SUCESSO:</strong> IA inicializada com sucesso!';
+                result.style.color = '#4caf50';
+            } catch (error) {
+                result.innerHTML = '❌ <strong>ERRO:</strong> ' + error.message;
+                result.style.color = '#f44336';
+            }
+        }
+        
+        function testResponse() {
+            const result = document.getElementById('responseResult');
+            try {
+                if (!testAI) testAI = new DonFbbrAI();
+                
+                const greeting = testAI.getGreeting();
+                const response = testAI.processQuestion('O que é SUS?');
+                
+                result.innerHTML = `
+                    ✅ <strong>SUCESSO:</strong><br>
+                    <strong>Saudação:</strong> ${greeting}<br>
+                    <strong>Resposta:</strong> ${response}
+                `;
+                result.style.color = '#4caf50';
+            } catch (error) {
+                result.innerHTML = '❌ <strong>ERRO:</strong> ' + error.message;
+                result.style.color = '#f44336';
+            }
+        }
+        
+        function sendTestMessage() {
+            const input = document.getElementById('testInput');
+            const messages = document.getElementById('testMessages');
+            const userMessage = input.value.trim();
+            
+            if (userMessage) {
+                // Adicionar mensagem do usuário
+                messages.innerHTML += `<div style="text-align: right; margin: 5px 0; color: #00d4ff;"><strong>Você:</strong> ${userMessage}</div>`;
+                
+                // Processar resposta da IA
+                try {
+                    if (!testAI) testAI = new DonFbbrAI();
+                    const aiResponse = testAI.processQuestion(userMessage);
+                    messages.innerHTML += `<div style="margin: 5px 0; color: #4caf50;"><strong>DON_FBBR:</strong> ${aiResponse}</div>`;
+                } catch (error) {
+                    messages.innerHTML += `<div style="margin: 5px 0; color: #f44336;"><strong>ERRO:</strong> ${error.message}</div>`;
+                }
+                
+                input.value = '';
+                messages.scrollTop = messages.scrollHeight;
+            }
+        }
+        
+        // Permitir envio com Enter
+        document.getElementById('testInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                sendTestMessage();
+            }
+        });
+        
+        // Executar testes automaticamente
+        window.onload = function() {
+            setTimeout(() => {
+                testLoad();
+                setTimeout(() => {
+                    testInit();
+                    setTimeout(() => {
+                        testResponse();
+                    }, 500);
+                }, 500);
+            }, 1000);
+        };
+    </script>
+</body>
+</html>
+
