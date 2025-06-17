@@ -238,15 +238,176 @@ function initChat() {
     const chatInput = document.getElementById('chatInput');
     const sendMessageBtn = document.getElementById('sendMessage');
     const closeChatBtn = document.getElementById('closeChat');
-    const donFbbrFloating = document.querySelector('.don-fbbr-floating');
+
+    // Inicializar IA DON_FBBR
+    let donFbbr;
+    try {
+        donFbbr = new DonFbbrAI();
+        console.log('IA DON_FBBR inicializada com sucesso');
+    } catch (error) {
+        console.error('Erro ao inicializar IA:', error);
+        // Fallback simples se a classe não estiver disponível
+        donFbbr = {
+            getGreeting: () => "Olá! Sou o DON_FBBR, sua IA especializada em SUS na Odontologia. Como posso ajudá-lo hoje?",
+            processAdvancedQuestion: (question) => {
+                const responses = [
+                    "O SUS na Odontologia é organizado através da Política Nacional de Saúde Bucal, que visa reorganizar a prática e qualificar as ações e serviços oferecidos.",
+                    "A atenção básica em saúde bucal é desenvolvida através da Estratégia Saúde da Família, com equipes de saúde bucal integradas.",
+                    "Os Centros de Especialidades Odontológicas (CEO) oferecem atendimento especializado em endodontia, periodontia, cirurgia oral e atendimento a pacientes especiais.",
+                    "A Política Nacional de Saúde Bucal - Brasil Sorridente foi lançada em 2004 para reorganizar a atenção à saúde bucal no SUS.",
+                    "Os princípios do SUS (universalidade, equidade e integralidade) se aplicam integralmente à saúde bucal."
+                ];
+                return responses[Math.floor(Math.random() * responses.length)];
+            }
+        };
+    }
 
     // Open chat
     window.openChat = function() {
-        chatModal.style.display = 'flex';
-        chatModal.classList.add('modal-fade-in');
-        chatInput.focus();
-        document.body.style.overflow = 'hidden';
+        if (chatModal) {
+            chatModal.style.display = 'flex';
+            chatModal.classList.add('modal-fade-in');
+            if (chatInput) chatInput.focus();
+            document.body.style.overflow = 'hidden';
+            
+            // Adicionar mensagem de boas-vindas se não houver mensagens
+            if (chatMessages && chatMessages.children.length === 0) {
+                addWelcomeMessage();
+            }
+        }
     };
+
+    // Close chat
+    function closeChat() {
+        if (chatModal) {
+            chatModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+    }
+
+    // Adicionar mensagem de boas-vindas
+    function addWelcomeMessage() {
+        const welcomeMessage = donFbbr.getGreeting();
+        addMessage(welcomeMessage, 'ai');
+    }
+
+    // Adicionar mensagem ao chat
+    function addMessage(message, sender) {
+        if (!chatMessages) return;
+        
+        const messageDiv = document.createElement('div');
+        messageDiv.className = `chat-message ${sender}`;
+        
+        const avatarImg = document.createElement('img');
+        avatarImg.className = 'message-avatar';
+        avatarImg.src = sender === 'ai' ? 'assets/don_fbbr_robot_small.png' : 'assets/user-avatar.png';
+        avatarImg.alt = sender === 'ai' ? 'DON_FBBR' : 'Usuário';
+        
+        const contentDiv = document.createElement('div');
+        contentDiv.className = 'message-content';
+        contentDiv.textContent = message;
+        
+        if (sender === 'ai') {
+            messageDiv.appendChild(avatarImg);
+            messageDiv.appendChild(contentDiv);
+        } else {
+            messageDiv.appendChild(contentDiv);
+            messageDiv.appendChild(avatarImg);
+        }
+        
+        chatMessages.appendChild(messageDiv);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+        
+        // Animação
+        setTimeout(() => {
+            messageDiv.style.opacity = '1';
+            messageDiv.style.transform = 'translateY(0)';
+        }, 100);
+    }
+
+    // Processar mensagem do usuário
+    function processUserMessage() {
+        const userMessage = chatInput.value.trim();
+        if (userMessage && chatMessages) {
+            addMessage(userMessage, 'user');
+            chatInput.value = '';
+            
+            // Mostrar indicador de digitação
+            showTypingIndicator();
+            
+            // Simular tempo de processamento
+            setTimeout(() => {
+                hideTypingIndicator();
+                try {
+                    const aiResponse = donFbbr.processAdvancedQuestion ? 
+                        donFbbr.processAdvancedQuestion(userMessage) : 
+                        donFbbr.processQuestion(userMessage);
+                    addMessage(aiResponse, 'ai');
+                } catch (error) {
+                    console.error('Erro ao processar pergunta:', error);
+                    addMessage("Desculpe, tive um problema ao processar sua pergunta. Pode tentar novamente?", 'ai');
+                }
+            }, 1200);
+        }
+    }
+
+    // Indicador de digitação
+    function showTypingIndicator() {
+        const typingDiv = document.createElement('div');
+        typingDiv.className = 'typing-indicator';
+        typingDiv.id = 'typingIndicator';
+        typingDiv.innerHTML = `
+            <img src="assets/don_fbbr_robot_small.png" alt="DON_FBBR" class="message-avatar">
+            <div class="typing-dots">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        `;
+        chatMessages.appendChild(typingDiv);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    function hideTypingIndicator() {
+        const typingIndicator = document.getElementById('typingIndicator');
+        if (typingIndicator) {
+            typingIndicator.remove();
+        }
+    }
+
+    // Event listeners
+    if (closeChatBtn) {
+        closeChatBtn.addEventListener('click', closeChat);
+    }
+
+    if (sendMessageBtn) {
+        sendMessageBtn.addEventListener('click', processUserMessage);
+    }
+
+    if (chatInput) {
+        chatInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                processUserMessage();
+            }
+        });
+    }
+
+    // Close on background click
+    if (chatModal) {
+        chatModal.addEventListener('click', (e) => {
+            if (e.target === chatModal) {
+                closeChat();
+            }
+        });
+    }
+
+    // ESC key to close
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && chatModal && chatModal.style.display === 'flex') {
+            closeChat();
+        }
+    });
+}
 
     // Close chat
     function closeChat() {

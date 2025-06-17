@@ -17,6 +17,8 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/pdf-viewer.css">
+    <link rel="stylesheet" href="css/chat.css">
 </head>
 <body>
     <!-- Header -->
@@ -624,13 +626,13 @@
 
                 <div class="equipe-card">
                     <div class="equipe-image">
-                        <img src="images/Mauricio.jpg" alt="Dr. Mauricio">
+                        <img src="images/mauricio.jpg" alt="Dr. Mauricio Silveira Pinheiro">
                     </div>
                     <div class="equipe-content">
-                        <h3 class="equipe-name">Dr. Mauricio</h3>
-                        <p class="equipe-role">Professor, Fundamentos básicos do SUS NA ODONTOLOGIA-FBBR</p>
+                        <h3 class="equipe-name">Dr. Mauricio Silveira Pinheiro</h3>
+                        <p class="equipe-role">Fundamentos da atenção primária III (Saúde Bucal e Atualidades) FBBR</p>
                         <p class="equipe-description">
-                            Especialista em diretrizes SUS, responsável pelo desenvolvimento do conteúdo científico e coordenação acadêmica da disciplina
+                            Especialista em atenção primária e saúde bucal, responsável pelo desenvolvimento do conteúdo científico e coordenação acadêmica da disciplina
                         </p>
                     </div>
                 </div>
@@ -694,7 +696,7 @@
                     <ul>
                         <li>• Daniella Carvalho Gomes de Cerqueira</li>
                         <li>• Dr. Felipe Jesus</li>
-                        <li>• Dr. Mauricio</li>
+                        <li>• Dr. Mauricio Silveira Pinheiro</li>
                     </ul>
                 </div>
             </div>
@@ -753,6 +755,39 @@
                 <iframe id="pdfFrame" src="" width="100%" height="100%"></iframe>
             </div>
         </div>
+    </div>
+
+    <!-- Chat Modal da IA DON_FBBR -->
+    <div id="chatModal" class="chat-modal">
+        <div class="chat-container">
+            <div class="chat-header">
+                <div class="chat-header-info">
+                    <img src="assets/don_fbbr_robot_small.png" alt="DON_FBBR" class="chat-avatar">
+                    <div class="chat-title">
+                        <h3>DON_FBBR</h3>
+                        <span class="chat-status">IA Assistente • Online</span>
+                    </div>
+                </div>
+                <button id="closeChat" class="chat-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div id="chatMessages" class="chat-messages">
+                <!-- Mensagens aparecerão aqui -->
+            </div>
+            <div class="chat-input-container">
+                <input type="text" id="chatInput" placeholder="Digite sua pergunta sobre SUS na Odontologia..." class="chat-input">
+                <button id="sendMessage" class="chat-send">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Botão Flutuante da IA -->
+    <div class="don-fbbr-floating" onclick="openChat()">
+        <img src="assets/don_fbbr_robot_small.png" alt="DON_FBBR" class="floating-avatar">
+        <div class="floating-pulse"></div>
     </div>
 
     <!-- Scripts -->
