@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUS NA ODONTOLOGIA - Estudo Avançado & Interativo</title>
+    <meta name="description" content="Explore o fascinante mundo do SUS NA ODONTOLOGIA com nossa plataforma de estudos avançada, equipada com inteligência artificial e recursos interativos para maximizar seu aprendizado.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/don_fbbr_robot_small.png">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <i class="fas fa-tooth"></i>
+                    <span>SUS ODONTO</span>
+                </div>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="#inicio" class="nav-link">Início</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#especialidades" class="nav-link">Especialidades</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#resumos" class="nav-link">Resumos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#questoes" class="nav-link">Questões</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#contato" class="nav-link">Contato</a>
+                    </li>
+                </ul>
+                <div class="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        <span class="title-main">SUS NA</span>
+                        <span class="title-highlight">ODONTOLOGIA</span>
+                        <span class="title-subtitle">Estudo Avançado & Interativo</span>
+                    </h1>
+                    <p class="hero-description">
+                        Explore o fascinante mundo do SUS NA ODONTOLOGIA com nossa plataforma de estudos avançada, 
+                        equipada com inteligência artificial e recursos interativos para maximizar seu aprendizado.
+                    </p>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">5</span>
+                            <span class="stat-label">PDFs Especializados</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">50+</span>
+                            <span class="stat-label">Questões Práticas</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">24/7</span>
+                            <span class="stat-label">IA Disponível</span>
+                        </div>
+                    </div>
+                    <div class="hero-buttons">
+                        <button class="btn btn-primary" onclick="scrollToSection('especialidades')">
+                            <i class="fas fa-rocket"></i>
+                            Começar Estudos
+                        </button>
+                        <button class="btn btn-secondary" onclick="openChat()">
+                            <i class="fas fa-robot"></i>
+                            Falar com IA
+                        </button>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="images/odonto-hero.jpg" alt="SUS na Odontologia" class="hero-img">
+                    <div class="hero-overlay"></div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-background">
+            <div class="particles"></div>
+        </div>
+    </section>
+
+    <!-- Especialidades Section -->
+    <section id="especialidades" class="especialidades">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Especialidades</h2>
+                <p class="section-subtitle">Foco em SUS NA ODONTOLOGIA</p>
+            </div>
+            
+            <!-- Políticas Públicas -->
+            <div class="especialidade-categoria">
+                <h3 class="categoria-title">
+                    <i class="fas fa-balance-scale"></i>
+                    Políticas Públicas
+                    <span class="categoria-subtitle">LEGISLAÇÃO, DIRETRIZES, PROTOCOLOS</span>
+                </h3>
+                <div class="cards-grid">
+                    <div class="card pdf-card" onclick="openPDF('assets/legislacao-sus-odontologia.pdf')">
+                        <div class="card-image">
+                            <img src="images/sus-hero.jpg" alt="Legislação SUS">
+                            <div class="card-overlay">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Legislação do SUS</h3>
+                            <p class="card-description">Marco legal e normativo da atenção odontológica no SUS</p>
+                            <div class="card-footer">
+                                <span class="file-size">292 KB</span>
+                                <span class="file-pages">PDF</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card pdf-card" onclick="openPDF('assets/diretrizes-sus-odontologia.pdf')">
+                        <div class="card-image">
+                            <img src="images/saude-publica.jpg" alt="Diretrizes SUS">
+                            <div class="card-overlay">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Diretrizes do SUS</h3>
+                            <p class="card-description">Política Nacional de Saúde Bucal - Brasil Sorridente</p>
+                            <div class="card-footer">
+                                <span class="file-size">297 KB</span>
+                                <span class="file-pages">PDF</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card pdf-card" onclick="openPDF('assets/protocolos-sus-odontologia.pdf')">
+                        <div class="card-image">
+                            <img src="images/odonto-hero.jpg" alt="Protocolos SUS">
+                            <div class="card-overlay">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Protocolos Clínicos</h3>
+                            <p class="card-description">Padronização da atenção odontológica no SUS</p>
+                            <div class="card-footer">
+                                <span class="file-size">273 KB</span>
+                                <span class="file-pages">PDF</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Saúde Coletiva -->
+            <div class="especialidade-categoria">
+                <h3 class="categoria-title">
+                    <i class="fas fa-users"></i>
+                    Saúde Coletiva
+                    <span class="categoria-subtitle">EPIDEMIOLOGIA, PREVENÇÃO, PROMOÇÃO</span>
+                </h3>
+                <div class="cards-grid">
+                    <div class="card pdf-card" onclick="openPDF('assets/epidemiologia-saude-bucal.pdf')">
+                        <div class="card-image">
+                            <img src="images/sus-hero.jpg" alt="Epidemiologia">
+                            <div class="card-overlay">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Epidemiologia</h3>
+                            <p class="card-description">Panorama epidemiológico da saúde bucal no Brasil</p>
+                            <div class="card-footer">
+                                <span class="file-size">301 KB</span>
+                                <span class="file-pages">PDF</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card pdf-card" onclick="openPDF('assets/prevencao-saude-bucal.pdf')">
+                        <div class="card-image">
+                            <img src="images/saude-publica.jpg" alt="Prevenção">
+                            <div class="card-overlay">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Prevenção</h3>
+                            <p class="card-description">Estratégias preventivas em saúde bucal no SUS</p>
+                            <div class="card-footer">
+                                <span class="file-size">304 KB</span>
+                                <span class="file-pages">PDF</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card pdf-card" onclick="openPDF('assets/promocao-saude-bucal.pdf')">
+                        <div class="card-image">
+                            <img src="images/odonto-hero.jpg" alt="Promoção">
+                            <div class="card-overlay">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Promoção</h3>
+                            <p class="card-description">Promoção da saúde bucal e ações intersetoriais</p>
+                            <div class="card-footer">
+                                <span class="file-size">274 KB</span>
+                                <span class="file-pages">PDF</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Gestão em Saúde -->
+            <div class="especialidade-categoria">
+                <h3 class="categoria-title">
+                    <i class="fas fa-chart-line"></i>
+                    Gestão em Saúde
+                    <span class="categoria-subtitle">ORGANIZAÇÃO, PLANEJAMENTO, AVALIAÇÃO</span>
+                </h3>
+                <div class="cards-grid">
+                    <div class="card pdf-card" onclick="openPDF('assets/organizacao-servicos-saude-bucal.pdf')">
+                        <div class="card-image">
+                            <img src="images/sus-hero.jpg" alt="Organização">
+                            <div class="card-overlay">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Organização</h3>
+                            <p class="card-description">Organização dos serviços de saúde bucal no SUS</p>
+                            <div class="card-footer">
+                                <span class="file-size">273 KB</span>
+                                <span class="file-pages">PDF</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card pdf-card" onclick="openPDF('assets/planejamento-saude-bucal.pdf')">
+                        <div class="card-image">
+                            <img src="images/saude-publica.jpg" alt="Planejamento">
+                            <div class="card-overlay">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Planejamento</h3>
+                            <p class="card-description">Estratégias de planejamento em saúde bucal</p>
+                            <div class="card-footer">
+                                <span class="file-size">308 KB</span>
+                                <span class="file-pages">PDF</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card pdf-card" onclick="openPDF('assets/avaliacao-saude-bucal.pdf')">
+                        <div class="card-image">
+                            <img src="images/odonto-hero.jpg" alt="Avaliação">
+                            <div class="card-overlay">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Avaliação</h3>
+                            <p class="card-description">Metodologias de avaliação em saúde bucal</p>
+                            <div class="card-footer">
+                                <span class="file-size">274 KB</span>
+                                <span class="file-pages">PDF</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resumos Section -->
+    <section id="resumos" class="resumos">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Resumos Científicos</h2>
+                <p class="section-subtitle">Conteúdo estruturado e atualizado</p>
+            </div>
+            <div class="cards-grid">
+                <div class="card pdf-card" onclick="openPDF('assets/sus(1).pdf', 'Fundamentos do SUS')">
+                    <div class="card-image">
+                        <img src="images/sus-hero.jpg" alt="Fundamentos do SUS">
+                        <div class="card-overlay">
+                            <div class="card-icon">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Fundamentos do SUS</h3>
+                        <p class="card-description">
+                            Princípios, diretrizes e bases legais do Sistema Único de Saúde
+                        </p>
+                        <div class="card-footer">
+                            <span class="file-size">2.1 MB</span>
+                            <span class="file-pages">45 páginas</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card pdf-card" onclick="openPDF('assets/sus(2).pdf', 'Políticas de Saúde Bucal')">
+                    <div class="card-image">
+                        <img src="images/saude-publica.jpg" alt="Políticas de Saúde Bucal">
+                        <div class="card-overlay">
+                            <div class="card-icon">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Políticas de Saúde Bucal</h3>
+                        <p class="card-description">
+                            Diretrizes nacionais e programas de saúde bucal no SUS
+                        </p>
+                        <div class="card-footer">
+                            <span class="file-size">2.5 MB</span>
+                            <span class="file-pages">52 páginas</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card pdf-card" onclick="openPDF('assets/sus(3).pdf', 'Atenção Básica em Odontologia')">
+                    <div class="card-image">
+                        <img src="images/odonto-hero.jpg" alt="Atenção Básica">
+                        <div class="card-overlay">
+                            <div class="card-icon">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Atenção Básica em Odontologia</h3>
+                        <p class="card-description">
+                            Organização e funcionamento da atenção básica em saúde bucal
+                        </p>
+                        <div class="card-footer">
+                            <span class="file-size">4.2 MB</span>
+                            <span class="file-pages">78 páginas</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card pdf-card" onclick="openPDF('assets/sus(4).pdf', 'Especialidades Odontológicas')">
+                    <div class="card-image">
+                        <img src="images/sus-hero.jpg" alt="Especialidades">
+                        <div class="card-overlay">
+                            <div class="card-icon">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Especialidades Odontológicas</h3>
+                        <p class="card-description">
+                            Centros de especialidades odontológicas e atenção secundária
+                        </p>
+                        <div class="card-footer">
+                            <span class="file-size">4.1 MB</span>
+                            <span class="file-pages">73 páginas</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card pdf-card" onclick="openPDF('assets/sus(5).pdf', 'Gestão e Avaliação')">
+                    <div class="card-image">
+                        <img src="images/saude-publica.jpg" alt="Gestão e Avaliação">
+                        <div class="card-overlay">
+                            <div class="card-icon">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Gestão e Avaliação</h3>
+                        <p class="card-description">
+                            Indicadores, monitoramento e avaliação em saúde bucal
+                        </p>
+                        <div class="card-footer">
+                            <span class="file-size">4.4 MB</span>
+                            <span class="file-pages">81 páginas</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Questões Section -->
+    <section id="questoes" class="questoes">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Questões & Casos Clínicos</h2>
+                <p class="section-subtitle">Teste seus conhecimentos com casos reais</p>
+            </div>
+            <div class="questoes-grid">
+                <div class="questao-card" data-difficulty="medio">
+                    <div class="questao-header">
+                        <span class="questao-category">Políticas Públicas</span>
+                        <span class="questao-difficulty medio">Médio</span>
+                    </div>
+                    <div class="questao-content">
+                        <h3 class="questao-title">Qual é o principal objetivo da Política Nacional de Saúde Bucal?</h3>
+                        <div class="questao-options">
+                            <label class="option">
+                                <input type="radio" name="q1" value="a">
+                                <span>a) Apenas tratamento curativo</span>
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="q1" value="b">
+                                <span>b) Reorganização da prática e qualificação das ações</span>
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="q1" value="c">
+                                <span>c) Apenas prevenção de doenças</span>
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="q1" value="d">
+                                <span>d) Redução de custos</span>
+                            </label>
+                        </div>
+                        <button class="btn btn-outline" onclick="showAnswer(this, 'b', 'A Política Nacional de Saúde Bucal visa reorganizar a prática e qualificar as ações e serviços oferecidos.')">
+                            Ver Resposta
+                        </button>
+                    </div>
+                </div>
+
+                <div class="questao-card" data-difficulty="dificil">
+                    <div class="questao-header">
+                        <span class="questao-category">Atenção Básica</span>
+                        <span class="questao-difficulty dificil">Difícil</span>
+                    </div>
+                    <div class="questao-content">
+                        <h3 class="questao-title">Como deve ser organizada a atenção à saúde bucal na Estratégia Saúde da Família?</h3>
+                        <div class="questao-options">
+                            <label class="option">
+                                <input type="radio" name="q2" value="a">
+                                <span>a) Apenas atendimento individual</span>
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="q2" value="b">
+                                <span>b) Integrada às ações da equipe multiprofissional</span>
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="q2" value="c">
+                                <span>c) Separada das demais ações de saúde</span>
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="q2" value="d">
+                                <span>d) Apenas em unidades especializadas</span>
+                            </label>
+                        </div>
+                        <button class="btn btn-outline" onclick="showAnswer(this, 'b', 'A atenção à saúde bucal deve estar integrada às ações da equipe multiprofissional, seguindo os princípios da ESF.')">
+                            Ver Resposta
+                        </button>
+                    </div>
+                </div>
+
+                <div class="questao-card" data-difficulty="facil">
+                    <div class="questao-header">
+                        <span class="questao-category">Princípios SUS</span>
+                        <span class="questao-difficulty facil">Fácil</span>
+                    </div>
+                    <div class="questao-content">
+                        <h3 class="questao-title">Quais são os princípios doutrinários do SUS?</h3>
+                        <div class="questao-options">
+                            <label class="option">
+                                <input type="radio" name="q3" value="a">
+                                <span>a) Universalidade, Equidade e Integralidade</span>
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="q3" value="b">
+                                <span>b) Apenas Universalidade</span>
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="q3" value="c">
+                                <span>c) Descentralização e Hierarquização</span>
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="q3" value="d">
+                                <span>d) Participação Popular</span>
+                            </label>
+                        </div>
+                        <button class="btn btn-outline" onclick="showAnswer(this, 'a', 'Os princípios doutrinários do SUS são: Universalidade, Equidade e Integralidade.')">
+                            Ver Resposta
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato Section -->
+    <section id="contato" class="contato">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Contato</h2>
+                <p class="section-subtitle">Entre em contato conosco</p>
+            </div>
+            <div class="contato-grid">
+                <div class="contato-info">
+                     <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="info-content">
+                        <h3>Localização</h3>
+                        <p>Av. Alberto Passos, 294 - Centro<br>Cruz das Almas - BA, 44380-000</p>
+                        <div class="map-container">
+                            <iframe 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3897.234567890123!2d-39.1234567!3d-12.6789012!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTLCsDQwJzQ0LjAiUyAzOcKwMDcnMjQuNCJX!5e0!3m2!1spt-BR!2sbr!4v1234567890123!5m2!1spt-BR!2sbr"
+                                width="100%" 
+                                height="200" 
+                                style="border:0; border-radius: 10px;" 
+                                allowfullscreen="" 
+                                loading="lazy" 
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3>Telefones</h3>
+                            <p>(75) 3017-0879<br>(75) 98823-4776</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3>Email</h3>
+                            <p>rlambaia2023@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3>Horário</h3>
+                            <p>Segunda a Sexta: 8h às 18h<br>Sábado: 8h às 12h</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contato-map">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3896.5234567890123!2d-39.1234567!3d-12.1234567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTLCsDA3JzI0LjQiUyAzOcKwMDcnMjQuNCJX!5e0!3m2!1spt-BR!2sbr!4v1234567890123!5m2!1spt-BR!2sbr"
+                        width="100%" 
+                        height="400" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Equipe Section -->
+    <section id="equipe" class="equipe">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Nossa Equipe</h2>
+                <p class="section-subtitle">Conheça os profissionais que tornam este projeto possível</p>
+            </div>
+            <div class="equipe-grid">
+                <div class="equipe-card">
+                    <div class="equipe-image">
+                        <img src="images/Dani.jpg" alt="Daniella Carvalho">
+                    </div>
+                    <div class="equipe-content">
+                        <h3 class="equipe-name">Daniella Carvalho Gomes de Cerqueira</h3>
+                        <p class="equipe-role">Coordenação dos cursos de saúde FBBR</p>
+                        <p class="equipe-description">
+                            Responsável pela coordenação e desenvolvimento dos cursos de saúde da instituição
+                        </p>
+                    </div>
+                </div>
+
+                <div class="equipe-card">
+                    <div class="equipe-image">
+                        <img src="images/felipe.jpg" alt="Dr. Felipe Jesus">
+                    </div>
+                    <div class="equipe-content">
+                        <h3 class="equipe-name">Dr. Felipe Jesus</h3>
+                        <p class="equipe-role">Coordenador do curso de Odontologia e Colaborador</p>
+                        <p class="equipe-description">
+                            Coordenador acadêmico e especialista em odontologia
+                        </p>
+                    </div>
+                </div>
+
+                <div class="equipe-card">
+                    <div class="equipe-image">
+                        <img src="images/Mauricio.jpg" alt="Dr. Mauricio">
+                    </div>
+                    <div class="equipe-content">
+                        <h3 class="equipe-name">Dr. Mauricio</h3>
+                        <p class="equipe-role">Professor, Fundamentos básicos do SUS NA ODONTOLOGIA-FBBR</p>
+                        <p class="equipe-description">
+                            Especialista em diretrizes SUS, responsável pelo desenvolvimento do conteúdo científico e coordenação acadêmica da disciplina
+                        </p>
+                    </div>
+                </div>
+
+                <div class="equipe-card">
+                    <div class="equipe-image">
+                        <img src="images/harrison.JPG" alt="Harrison R. Costa">
+                    </div>
+                    <div class="equipe-content">
+                        <h3 class="equipe-name">Harrison R. Costa</h3>
+                        <p class="equipe-role">Desenvolvedor e Estudante da Instituição em Odontologia-FBBR</p>
+                        <p class="equipe-description">
+                            Desenvolvedor responsável pela criação e manutenção da plataforma digital
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <div class="footer-logo">
+                        <i class="fas fa-tooth"></i>
+                        <span>SUS NA ODONTOLOGIA</span>
+                    </div>
+                    <p class="footer-description">
+                        Plataforma de estudos avançada sobre SUS na Odontologia com IA integrada
+                    </p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h4>Navegação</h4>
+                        <ul>
+                            <li><a href="#inicio">Início</a></li>
+                            <li><a href="#especialidades">Especialidades</a></li>
+                            <li><a href="#resumos">Resumos</a></li>
+                            <li><a href="#questoes">Questões</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Contato</h4>
+                        <ul>
+                            <li><i class="fas fa-phone"></i> (75) 3017-0879</li>
+                            <li><i class="fas fa-envelope"></i> rlambaia2023@gmail.com</li>
+                            <li><i class="fas fa-map-marker-alt"></i> Cruz das Almas - BA</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    <p>&copy; 2025 SUS NA ODONTOLOGIA na Odontologia - FBBR. Todos os direitos reservados.</p>
+                    <p>Desenvolvido por Harrison Ribeiro Costa.</p>
+                </div>
+                <div class="footer-collaborators">
+                    <p><strong>Colaboradores:</strong></p>
+                    <ul>
+                        <li>• Daniella Carvalho Gomes de Cerqueira</li>
+                        <li>• Dr. Felipe Jesus</li>
+                        <li>• Dr. Mauricio</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- DON_FBBR Chat Modal -->
+    <div id="chatModal" class="chat-modal">
+        <div class="chat-container">
+            <div class="chat-header">
+                <div class="chat-title">
+                    <img src="assets/don_fbbr_robot_small.png" alt="DON_FBBR" class="chat-avatar">
+                    <span>DON_FBBR - Assistente IA</span>
+                </div>
+                <button id="closeChat" class="chat-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div id="chatMessages" class="chat-messages"></div>
+            <div class="chat-input-container">
+                <input type="text" id="chatInput" placeholder="Digite sua pergunta sobre SUS na Odontologia..." class="chat-input">
+                <button id="sendMessage" class="chat-send">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- DON_FBBR Floating Button -->
+    <div class="don-fbbr-floating" onclick="openChat()">
+        <img src="assets/don_fbbr_robot_small.png" alt="DON_FBBR" class="don-fbbr">
+        <div class="floating-pulse"></div>
+    </div>
+
+    <!-- PDF Viewer Modal -->
+    <div id="pdfModal" class="pdf-modal">
+        <div class="pdf-container">
+            <div class="pdf-header">
+                <h3 id="pdfTitle" class="pdf-title">Documento PDF</h3>
+                <div class="pdf-controls">
+                    <button id="pdfBack" class="pdf-btn">
+                        <i class="fas fa-arrow-left"></i>
+                        Voltar
+                    </button>
+                    <button id="pdfDownload" class="pdf-btn">
+                        <i class="fas fa-download"></i>
+                        Download
+                    </button>
+                    <button id="pdfClose" class="pdf-btn">
+                        <i class="fas fa-times"></i>
+                        Fechar
+                    </button>
+                </div>
+            </div>
+            <div class="pdf-viewer">
+                <iframe id="pdfFrame" src="" width="100%" height="100%"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/pdf-viewer.js"></script>
+    <script src="js/questions.js"></script>
+    <script src="assets/don_fbbr_ai_enhanced.js"></script>
+</body>
+</html>
+
